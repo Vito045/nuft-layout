@@ -1,0 +1,272 @@
+.footer {
+    grid-column: center-start / center-end;
+
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(min-content, 33rem));
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 33rem));
+    justify-content: space-between;
+    grid-row-gap: 2rem;
+
+    margin-top: 3rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        padding: 2rem;
+
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2rem;
+
+        background: url(../img/Footer_background_mobile.png);
+        background-size: 100% 100%;
+        padding-top: 12rem;
+    }
+
+    &__title {
+        font-family: 'Avenir Next Cyr Demi', serif;
+        font-size: 1.8rem;
+        color: #16395b;
+        margin-bottom: 1.8rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-family: 'Avenir Next Cyr Medium', serif;
+            color: #fff;
+        }
+    }
+
+    &__list {
+        list-style: none;
+
+        display: grid;
+        grid-row-gap: .5rem;
+
+        a,
+        a:visited,
+        a:hover,
+        a:active,
+        a:link {
+            text-decoration: none;
+            font-family: 'Avenir Next Cyr', serif;
+            font-size: 1.4rem;
+            color: #010101;
+
+            @media only screen and (max-width: $bp-medium) {
+                color: rgba(#fff, .7);
+            }
+        }
+    }
+
+    &__mailing {
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1;
+        }
+    }
+
+    &__email {
+        font-size: 1.4rem;
+        color: #00d793;
+    }
+
+    &__social {
+        display: flex;
+        margin-top: 2rem;
+
+        a,
+        a:visited,
+        a:hover,
+        a:active,
+        a:link {
+            text-decoration: none;
+            font-size: 1.6rem;
+        }
+
+        a {
+            width: 4rem;
+            height: 4rem;
+            transition: all .2s;
+            background-color: #fff;
+            border-radius: 50%;
+            color: #000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                background-color: #00ffc8;
+            }
+
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    &__input {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #06cf9a;
+
+        input {
+            border: none;
+            outline: none;
+            background: none;
+            flex: 1;
+            color: #16395b;
+            font-size: 1.4rem;
+            font-family: 'Avenir Next Cyr Demi', serif;
+            padding-bottom: 1rem;
+
+            &::placeholder {
+                color: rgba(#16395b, .7);
+                font-size: 1.4rem;
+
+                @media only screen and (max-width: $bp-medium) {
+                    color: rgba(#fff, .7);
+                }
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                font-family: 'Avenir Next Cyr Medium', serif;
+                color: #fff;
+            }
+        }
+
+        svg {
+            font-size: 1.6rem;
+            color: #06cf9a;
+        }
+    }
+
+    &__language {
+        width: 24rem;
+        height: 4rem;
+        justify-self: end;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        border-radius: 5px;
+        border: 1px solid #545784;
+
+        padding: 0 2rem;
+
+        select {
+            outline: none;
+            border: none;
+            background-color: transparent;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            font-family: "Avenir Next Cyr";
+            font-size: 1.4rem;
+            flex: 1;
+
+            @media only screen and (max-width: $bp-medium) {
+                color: #fff;
+            }
+        }
+
+        svg {
+            color: #16395b;
+
+            @media only screen and (max-width: $bp-medium) {
+                color: #fff;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1 / -1;
+            justify-self: start;
+            
+            border-color: #fff;
+        }
+    }
+
+    &__bottom {
+        grid-column: 1 / -1;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            display: block;
+        }
+    }
+
+    &__rights {
+        align-self: center;
+
+        display: flex;
+        align-items: center;
+        
+        font-size: 1.4rem;
+
+        img {
+            margin-right: 1rem;
+        }
+
+        span {
+            &::before {
+                content: ' d';
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__rights-image {
+        @media only screen and (max-width: $bp-medium) {
+            display: none;
+        }
+    }
+    &__rights-image-mobile {
+        display: none;
+
+        @media only screen and (max-width: $bp-medium) {
+            display: block;
+        }
+    }
+
+    &__bottom-list {
+        justify-self: end;
+        display: flex;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__bottom-item {
+        list-style: none;
+
+        a,
+        a:visited,
+        a:hover,
+        a:active,
+        a:link {
+            text-decoration: underline;
+            font-size: 1.4rem;
+            color: #16395b;
+            font-family: "Avenir Next Cyr Demi", serif;
+
+            @media only screen and (max-width: $bp-medium) {
+                font-family: "Avenir Next Cyr", serif;
+                color: #fff;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-right: 3rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+}

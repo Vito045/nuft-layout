@@ -1,0 +1,176 @@
+.header {
+    grid-column: 1 / -1;
+    justify-items: center;
+
+    display: grid;
+    grid-template-columns: min-content minmax(min-content, 57rem) min-content;
+    justify-content: space-between;
+    align-items: center;
+
+    // display: flex;
+    // justify-content: space-between;
+
+    padding: 2rem 2rem 0 2rem;
+
+    font-family: 'Avenir Next Cyr', serif;
+
+    @media only screen and (max-width: $bp-large) {
+        grid-template-columns: min-content min-content;
+    }
+
+    &__logo {
+        width: 11rem;
+        height: 3.2rem;
+
+        @media only screen and (max-width: $bp-large) {
+            display: none;
+        }
+    }
+
+    &__logo-mobile {
+        display: none;
+
+        @media only screen and (max-width: $bp-large) {
+            display: block;
+        }
+    }
+
+    &__search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.8rem 3rem;
+        border: 1px solid rgba(#545784, .7);
+        border-radius: 5px;
+        width: 100%;
+        height: 5rem;
+
+        @media only screen and (max-width: $bp-large) {
+            display: none;
+        }
+    }
+
+    &__search-icon svg {
+        font-size: 1.8rem;
+        color: #16395b;
+    }
+
+    &__input {
+        border: 0;
+        background: transparent;
+        outline: none;
+        color: #16395b;
+        font-size: 1.6em;
+
+        &::placeholder {
+            color: rgba(#16395b, .8);
+        }
+    }
+
+    &__options {
+        display: grid;
+        grid-template-columns: repeat(3,min-content);
+        align-items: center;
+        grid-gap: 2rem;
+
+        @media only screen and (max-width: $bp-large) {
+            display: none;
+        }
+    }
+
+    &__options-mobile {
+        display: none;
+        grid-template-columns: repeat(3, max-content);
+        grid-column-gap: 3rem;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-large) {
+            display: grid;
+        }
+    }
+
+    &__notifications {
+        display: flex;
+    }
+
+    &__notification {
+        position: relative;
+
+        svg {
+            color: #16395b;
+            font-size: 2rem;
+        }
+
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+    }
+
+    &__notification-count {
+        position: absolute;
+        background-color: #16395b;
+        border-radius: 10px;
+        padding: 4px 6px;
+        color: #fff;
+        font-size: 1.2rem;
+        top: 0;
+        transform: translate(20%, -65%);
+    }
+
+    &__selectdiv {
+        display: flex;
+        align-items: center;
+    }
+
+    &__select {
+        border: none;
+        background: none;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        font-family: 'Avenir Next Cyr';
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: #16395b;
+        margin-right: 0.5rem;
+    }
+
+    &__selecttrick i{
+        font-size: 1.2rem;
+    }
+
+    &__login {
+        border: none;
+        outline: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        background-color: #ffffff;
+        display: flex;
+        padding: 1.5rem 3rem;
+        font-size: 1.8rem;
+
+        & > span {
+            margin-left: 2rem;
+        }
+    }
+
+    &__menu {
+        display: flex;
+    }
+
+    &__menu-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #16395b;
+        text-transform: uppercase;
+        line-height: 1.7;
+        margin-right: 1.2rem;
+    }
+
+    &__menu-icon {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+}

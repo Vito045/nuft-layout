@@ -1,0 +1,986 @@
+@charset "UTF-8";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+
+body {
+  font-family: "Avenir Next Cyr", serif;
+  color: #000;
+  font-weight: 300;
+  background-color: #f6f4fc;
+  padding-bottom: 2rem; }
+
+.container {
+  display: grid;
+  grid-template-rows: min-content;
+  grid-template-columns: [full-start] minmax(4rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 17.5rem) [col-end]) [center-end] minmax(4rem, 1fr) [full-end]; }
+  @media only screen and (max-width: 62.5em) {
+    .container {
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
+
+main {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: [full-start] minmax(4rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 17.5rem) [col-end]) [center-end] minmax(4rem, 1fr) [full-end];
+  margin: 4.5rem 0; }
+  @media only screen and (max-width: 62.5em) {
+    main {
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
+  @media only screen and (max-width: 50em) {
+    main {
+      margin: 0; } }
+
+@font-face {
+  font-family: 'Avenir Next Cyr';
+  src: url(../fonts/AvenirNextCyr-Regular.ttf); }
+
+@font-face {
+  font-family: 'Avenir Next Cyr Demi';
+  src: url(../fonts/AvenirNextCyr-Demi.ttf); }
+
+@font-face {
+  font-family: 'Avenir Next Cyr Medium';
+  src: url(../fonts/AvenirNextCyr-Medium.ttf); }
+
+@font-face {
+  font-family: 'Avenir Next Cyr Bold';
+  src: url(../fonts/AvenirNextCyr-Bold.ttf); }
+
+.heading-1, .heading-2, .heading-3, .heading-4 {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400; }
+
+.heading-1 {
+  font-size: 4.5rem;
+  color: #f9f7f6;
+  line-height: 1; }
+
+.heading-2 {
+  font-style: italic;
+  font-size: 4rem;
+  line-height: 1; }
+  .heading-2--light {
+    color: #f9f7f6; }
+  .heading-2--dark {
+    color: #54483A; }
+
+.heading-3 {
+  font-size: 1.6rem;
+  color: #c69963;
+  text-transform: uppercase; }
+
+.heading-4 {
+  font-size: 1.9rem; }
+  .heading-4--light {
+    color: #f9f7f6; }
+  .heading-4--dark {
+    color: #54483A; }
+
+.btn {
+  background-color: #c69963;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  transition: all .2s; }
+  .btn:hover {
+    background-color: #B28451; }
+
+.text-bold {
+  font-family: 'Avenir Next Cyr Demi', serif; }
+
+.button {
+  outline: none;
+  background-color: #fff;
+  border: 1px solid #c0d3fe;
+  border-radius: 28px;
+  height: 4rem;
+  padding: 0 2rem;
+  font-size: 1.4rem;
+  transition: all .2s;
+  cursor: pointer; }
+  .button:hover {
+    border-color: #00d7a9; }
+  .button.active {
+    background-color: #07d9b4;
+    border-color: #00d7a9; }
+
+.header {
+  grid-column: 1 / -1;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: min-content minmax(min-content, 57rem) min-content;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 0 2rem;
+  font-family: 'Avenir Next Cyr', serif; }
+  @media only screen and (max-width: 62.5em) {
+    .header {
+      grid-template-columns: min-content min-content; } }
+  .header__logo {
+    width: 11rem;
+    height: 3.2rem; }
+    @media only screen and (max-width: 62.5em) {
+      .header__logo {
+        display: none; } }
+  .header__logo-mobile {
+    display: none; }
+    @media only screen and (max-width: 62.5em) {
+      .header__logo-mobile {
+        display: block; } }
+  .header__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 3rem;
+    border: 1px solid rgba(84, 87, 132, 0.7);
+    border-radius: 5px;
+    width: 100%;
+    height: 5rem; }
+    @media only screen and (max-width: 62.5em) {
+      .header__search {
+        display: none; } }
+  .header__search-icon svg {
+    font-size: 1.8rem;
+    color: #16395b; }
+  .header__input {
+    border: 0;
+    background: transparent;
+    outline: none;
+    color: #16395b;
+    font-size: 1.6em; }
+    .header__input::placeholder {
+      color: rgba(22, 57, 91, 0.8); }
+  .header__options {
+    display: grid;
+    grid-template-columns: repeat(3, min-content);
+    align-items: center;
+    grid-gap: 2rem; }
+    @media only screen and (max-width: 62.5em) {
+      .header__options {
+        display: none; } }
+  .header__options-mobile {
+    display: none;
+    grid-template-columns: repeat(3, max-content);
+    grid-column-gap: 3rem;
+    align-items: center; }
+    @media only screen and (max-width: 62.5em) {
+      .header__options-mobile {
+        display: grid; } }
+  .header__notifications {
+    display: flex; }
+  .header__notification {
+    position: relative; }
+    .header__notification svg {
+      color: #16395b;
+      font-size: 2rem; }
+    .header__notification:not(:last-child) {
+      margin-right: 2rem; }
+  .header__notification-count {
+    position: absolute;
+    background-color: #16395b;
+    border-radius: 10px;
+    padding: 4px 6px;
+    color: #fff;
+    font-size: 1.2rem;
+    top: 0;
+    transform: translate(20%, -65%); }
+  .header__selectdiv {
+    display: flex;
+    align-items: center; }
+  .header__select {
+    border: none;
+    background: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'Avenir Next Cyr';
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #16395b;
+    margin-right: 0.5rem; }
+  .header__selecttrick i {
+    font-size: 1.2rem; }
+  .header__login {
+    border: none;
+    outline: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #ffffff;
+    display: flex;
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem; }
+    .header__login > span {
+      margin-left: 2rem; }
+  .header__menu {
+    display: flex; }
+  .header__menu-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #16395b;
+    text-transform: uppercase;
+    line-height: 1.7;
+    margin-right: 1.2rem; }
+  .header__menu-icon {
+    width: 2.2rem;
+    height: 2.2rem; }
+
+.name {
+  grid-column: center-start / center-end;
+  display: grid;
+  grid-template-columns: repeat(10, [col-start] 1fr [col-end]);
+  grid-template-rows: repeat(8, [row-start] 85px [row-end]);
+  grid-gap: 0 3rem; }
+  @media only screen and (max-width: 62.5em) {
+    .name {
+      grid-template-rows: repeat(9, [row-start] 38px [row-end]); } }
+  .name__image {
+    grid-column: 1 / -1;
+    grid-row: 1 / row-end 7;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url(../img/10783677_web1_L-EdCC-Building-EDH-180302.jpg) center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 15px; }
+    @media only screen and (max-width: 62.5em) {
+      .name__image {
+        grid-row: row-start 2 / row-end 6; } }
+  .name__logo {
+    grid-column: 1 / col-end 2;
+    grid-row: row-start 7 / -1;
+    width: auto;
+    justify-self: end; }
+    @media only screen and (max-width: 62.5em) {
+      .name__logo {
+        grid-row: 1 / row-end 3;
+        justify-self: start;
+        margin-left: 1.5rem;
+        height: 100%; } }
+    @media only screen and (max-width: 50em) {
+      .name__logo {
+        grid-row: 1 / row-end 2; } }
+  .name__texts {
+    color: #fff;
+    font-family: 'Avenir Next Cyr Bold', serif;
+    grid-column: col-start 3 / col-end 8;
+    grid-row: row-start 7 / span 1;
+    display: flex;
+    flex-direction: column; }
+    @media only screen and (max-width: 62.5em) {
+      .name__texts {
+        grid-column: 1 / -1;
+        grid-row: row-start 5 / row-end 6;
+        margin-left: 1.5rem; } }
+  .name__title {
+    font-size: 2.8rem; }
+    @media only screen and (max-width: 62.5em) {
+      .name__title {
+        font-family: 'Avenir Next Cyr Medium', serif;
+        font-size: 2.2rem; } }
+    @media only screen and (max-width: 50em) {
+      .name__title {
+        font-family: 'Avenir Next Cyr', serif;
+        font-size: 1.8rem; } }
+  .name__subtitle {
+    font-size: 1.8rem;
+    font-family: 'Avenir Next Cyr Demi', serif; }
+    @media only screen and (max-width: 62.5em) {
+      .name__subtitle {
+        font-size: 1.4rem; } }
+    @media only screen and (max-width: 50em) {
+      .name__subtitle {
+        font-size: 1.2rem; } }
+  .name__info {
+    grid-column: col-start 8 / -1;
+    grid-row: 1 / row-end 7;
+    justify-self: center;
+    align-self: end;
+    font-family: 'Avenir Next Cyr', serif;
+    color: #000;
+    font-size: 1.4rem;
+    background-color: #fff;
+    border-radius: 28px 28px 0 0;
+    width: 33rem;
+    padding: 2rem 3rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem; }
+    @media only screen and (max-width: 62.5em) {
+      .name__info {
+        display: none; } }
+    .name__info-title {
+      font-size: 1.6rem;
+      font-family: 'Avenir Next Cyr Demi', serif;
+      margin-bottom: .5rem; }
+      .name__info-title--normal {
+        font-family: 'Avenir Next Cyr', serif;
+        font-size: 1.4rem;
+        margin-bottom: 0; }
+    .name__info-text {
+      font-size: 1.4rem; }
+    .name__info-dates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      list-style: none; }
+    .name__info-angle {
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: 1px solid #c0d3fe;
+      background-color: #ffffff;
+      color: #06cf9a;
+      border-radius: 50%;
+      transform: translate(-200%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer; }
+    .name__info.oppened .name__info-closed {
+      display: none; }
+    .name__info.closed .name__info-oppened {
+      display: none; }
+    .name__info.closed .name__info-block:last-child {
+      display: block; }
+    .name__info.closed .name__info-block:last-child {
+      display: flex;
+      align-items: center; }
+    .name__info.closed .name__info-block h4 {
+      margin-right: 1rem; }
+  .name__stats {
+    grid-column: col-start 3 / col-end 7;
+    grid-row: row-start 8 / -1;
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-column-gap: 3rem;
+    font-family: 'Avenir Next Cyr Medium', serif;
+    font-size: 1.6rem; }
+    @media only screen and (max-width: 62.5em) {
+      .name__stats {
+        grid-column: 1 / -1;
+        grid-row: row-start 7 / row-end 8;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 1.5rem;
+        align-items: center;
+        justify-items: start; } }
+  .name__stat-text--left {
+    margin-right: .4rem; }
+  .name__stat-mobile {
+    display: none; }
+    @media only screen and (max-width: 62.5em) {
+      .name__stat-mobile {
+        display: block; } }
+  .name__stat svg {
+    color: #06cf9a;
+    margin-right: 0.4rem; }
+  .name__buttons {
+    grid-column: col-start 8 / -1;
+    grid-row: row-start 8 / -1;
+    justify-self: end;
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-column-gap: .8rem; }
+    @media only screen and (max-width: 62.5em) {
+      .name__buttons {
+        grid-column: 1 / -1;
+        grid-row: row-start 9 / -1;
+        justify-self: start; } }
+    @media only screen and (max-width: 37.5em) {
+      .name__buttons {
+        grid-template-columns: 1fr max-content max-content;
+        width: 100%; } }
+
+.doctors {
+  grid-column: center-start / center-end;
+  display: grid;
+  grid-gap: 2rem; }
+  .doctors__headers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .doctors__title {
+    font-family: 'Avenir Next Cyr Bold', serif;
+    font-size: 2.4rem; }
+  .doctors__all {
+    font-family: 'Avenir Next Cyr Demi', serif;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #00d7a9; }
+  .doctors__doctors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    grid-gap: 3rem; }
+  .doctors__slider {
+    display: grid;
+    grid-template-columns: min-content max-content min-content;
+    grid-column-gap: 13.8rem;
+    justify-content: center; }
+    @media only screen and (max-width: 37.5em) {
+      .doctors__slider {
+        grid-column-gap: 0;
+        justify-content: space-between; } }
+  .doctors__arrow {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e4edfe;
+    color: #000;
+    font-size: 1.6rem;
+    border-radius: 50%;
+    transition: all .2s; }
+    .doctors__arrow:hover {
+      color: #fff;
+      background-color: #00d7a9; }
+  .doctors__slider-indicators {
+    display: flex;
+    align-items: center; }
+  .doctors__slider-indicator {
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    background-color: #00d7a9; }
+    .doctors__slider-indicator:not(:last-child) {
+      margin-right: 1rem; }
+    .doctors__slider-indicator.active {
+      width: 2rem;
+      border-radius: 4px; }
+
+.doctor {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  background-color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  transition: all .2s;
+  position: relative; }
+  @media only screen and (max-width: 37.5em) {
+    .doctor {
+      grid-gap: 1rem; }
+      .doctor:not(:first-child) {
+        display: none; } }
+  .doctor__stats {
+    list-style: none;
+    color: #0943bf;
+    display: grid;
+    grid-row-gap: 1rem; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__stats {
+        grid-column: 1 / -1;
+        grid-row: 2 / span 1;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-row-gap: 0;
+        margin-top: 2rem; } }
+  .doctor__stat {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 1rem;
+    align-items: center; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__stat {
+        grid-template-columns: 1fr min-content;
+        justify-items: end; } }
+    .doctor__stat-icon {
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+      width: 3.2rem;
+      height: 3.2rem;
+      background-color: #e4edfe;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .doctor__stat-icon svg {
+        font-size: 1.4rem; }
+      @media only screen and (max-width: 37.5em) {
+        .doctor__stat-icon {
+          grid-column: 2 / -1; } }
+    .doctor__stat-title {
+      grid-column: 2 / 3;
+      align-self: end;
+      font-size: 1.6rem;
+      font-family: 'Avenir Next Cyr Medium', serif; }
+      @media only screen and (max-width: 37.5em) {
+        .doctor__stat-title {
+          grid-column: 1 / 2;
+          grdi-row: 1 / 2; } }
+    .doctor__stat-subtitle {
+      grid-column: 2 / 3;
+      color: #707070;
+      font-size: 1.3rem; }
+      @media only screen and (max-width: 37.5em) {
+        .doctor__stat-subtitle {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3; } }
+  .doctor__imageElem {
+    position: relative; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__imageElem {
+        grid-column: 2 / -1;
+        grid-row: 1 / span 1; } }
+  .doctor__image {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .doctor__image img {
+      width: 90px;
+      height: 90px;
+      border: 1px solid #d2e1f5;
+      border-radius: 50%; }
+  .doctor__indicator {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 8%;
+    left: 8%; }
+  .doctor__heart {
+    width: 3.6rem;
+    height: 3.6rem;
+    top: 4%;
+    right: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 1.6rem;
+    color: #06cf9a;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(68, 219, 179, 0.2);
+    border-radius: 50%;
+    transition: all .2s;
+    cursor: pointer;
+    z-index: 10; }
+    .doctor__heart:hover {
+      background-color: #06cf9a;
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(68, 219, 179, 0.4); }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__heart {
+        top: 4%;
+        left: 4%; } }
+  .doctor__accessibility {
+    font-size: 1.4rem; }
+  .doctor__texts {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    font-family: 'Avenir Next Cyr Demi', serif;
+    position: relative; }
+    .doctor__texts > * {
+      position: sticky;
+      z-index: 2; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__texts {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        justify-self: end;
+        text-align: end; } }
+  .doctor__title {
+    font-size: 2rem; }
+  .doctor__text {
+    font-size: 1.5rem;
+    color: #0943bf;
+    margin-top: .5rem;
+    height: 5.5rem;
+    overflow: scroll;
+    z-index: 1; }
+  .doctor__location {
+    grid-column: 1 / -1;
+    font-size: 1.4rem;
+    font-family: 'Avenir Next Cyr Demi', serif;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content min-content;
+    grid-column-gap: 1rem; }
+    .doctor__location svg {
+      color: #0943bf;
+      font-size: 1.6rem;
+      margin-bottom: 1rem; }
+      @media only screen and (max-width: 37.5em) {
+        .doctor__location svg {
+          margin-bottom: 0; } }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__location {
+        grid-template-columns: 1fr max-content;
+        justify-items: end; } }
+  .doctor__location-icon {
+    grid-row: 1 / -1;
+    align-self: center; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__location-icon {
+        grid-column: 2 / -1;
+        width: 3.2rem;
+        height: 3.2rem;
+        background-color: #e4edfe;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center; } }
+  .doctor__location-title {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__location-title {
+        grid-column: 1 / 2; } }
+  .doctor__location-subtitle {
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+    color: #7e7e7e;
+    font-size: 1.4rem;
+    font-family: 'Avenir Next Cyr', serif; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__location-subtitle {
+        grid-column: 1 / 2; } }
+  .doctor__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    z-index: 1;
+    background-image: linear-gradient(to top, #ffffff 0%, #ffffff 20%, rgba(255, 255, 255, 0) 80%); }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__overlay {
+        display: none; } }
+  .doctor__priceinfo {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%) scaleX(1.006);
+    background-color: #fff;
+    height: 0;
+    overflow: hidden;
+    transition: .2s all;
+    padding: 0 3rem 0rem;
+    display: grid;
+    grid-row-gap: 1rem; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__priceinfo {
+        grid-column: 1 / -1;
+        margin-top: 1rem;
+        position: relative;
+        height: auto;
+        transform: none;
+        justify-content: end;
+        justify-items: end;
+        grid-template-columns: 1fr;
+        padding: 0; } }
+  .doctor__priceinfo-title {
+    font-family: "Avenir Next Cyr Medium";
+    font-size: 1.6rem; }
+  .doctor__pricelist {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-gap: .3rem;
+    font-size: 1.4rem;
+    font-family: "Avenir Next Cyr Medium";
+    list-style: none; }
+  .doctor__pricetitle {
+    color: rgba(0, 0, 0, 0.7); }
+  .doctor__price {
+    font-family: "Avenir Next Cyr Demi"; }
+  .doctor__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    margin-top: 1rem; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor__buttons {
+        width: 100%; } }
+  .doctor.active {
+    transform: scale(1.1);
+    border: 1px solid #00d7a9;
+    border-bottom: none;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 2rem 3rem 2rem;
+    z-index: 10; }
+    @media only screen and (max-width: 50em) {
+      .doctor.active {
+        transform: scale(1.05); } }
+    @media only screen and (max-width: 37.5em) {
+      .doctor.active {
+        transform: none;
+        border: none;
+        padding: 2rem 3rem; } }
+  .doctor.active .doctor__text {
+    height: 100%;
+    min-height: 5.5rem; }
+  .doctor.active .doctor__location {
+    margin-top: 1rem; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor.active .doctor__location {
+        margin: 0; } }
+  .doctor.active .doctor__overlay {
+    background: none; }
+  .doctor.active .doctor__priceinfo {
+    height: auto;
+    border: 1px solid #00d7a9;
+    border-top: 1px solid #d2e1f5;
+    padding: 1rem 3rem 2rem;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; }
+    @media only screen and (max-width: 37.5em) {
+      .doctor.active .doctor__priceinfo {
+        border: none;
+        border: none;
+        padding: 0; } }
+
+.online {
+  background-color: #00d7a9; }
+
+.offline {
+  background-color: #d2e1f5; }
+
+.photos {
+  grid-column: 1 / -1;
+  overflow-x: scroll;
+  display: grid;
+  grid-template-columns: repeat(3, 146px);
+  grid-template-rows: 12rem;
+  grid-column-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  transition: all .2s;
+  margin: 2.25rem 0; }
+  .photos__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    border-radius: 5px; }
+    .photos__photo:last-child::after {
+      content: '+50 фото';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      font-size: 1.4rem;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+  .photos img {
+    width: 100%;
+    height: 100%; }
+  .photos.active {
+    height: 100%;
+    margin: 4.5rem 0; }
+
+.footer {
+  grid-column: center-start / center-end;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 33rem));
+  justify-content: space-between;
+  grid-row-gap: 2rem;
+  margin-top: 3rem; }
+  @media only screen and (max-width: 50em) {
+    .footer {
+      grid-column: 1 / -1;
+      padding: 2rem;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+      background: url(../img/Footer_background_mobile.png);
+      background-size: 100% 100%;
+      padding-top: 12rem; } }
+  .footer__title {
+    font-family: 'Avenir Next Cyr Demi', serif;
+    font-size: 1.8rem;
+    color: #16395b;
+    margin-bottom: 1.8rem; }
+    @media only screen and (max-width: 50em) {
+      .footer__title {
+        font-family: 'Avenir Next Cyr Medium', serif;
+        color: #fff; } }
+  .footer__list {
+    list-style: none;
+    display: grid;
+    grid-row-gap: .5rem; }
+    .footer__list a,
+    .footer__list a:visited,
+    .footer__list a:hover,
+    .footer__list a:active,
+    .footer__list a:link {
+      text-decoration: none;
+      font-family: 'Avenir Next Cyr', serif;
+      font-size: 1.4rem;
+      color: #010101; }
+      @media only screen and (max-width: 50em) {
+        .footer__list a,
+        .footer__list a:visited,
+        .footer__list a:hover,
+        .footer__list a:active,
+        .footer__list a:link {
+          color: rgba(255, 255, 255, 0.7); } }
+  @media only screen and (max-width: 50em) {
+    .footer__mailing {
+      grid-column: 1 / -1; } }
+  .footer__email {
+    font-size: 1.4rem;
+    color: #00d793; }
+  .footer__social {
+    display: flex;
+    margin-top: 2rem; }
+    .footer__social a,
+    .footer__social a:visited,
+    .footer__social a:hover,
+    .footer__social a:active,
+    .footer__social a:link {
+      text-decoration: none;
+      font-size: 1.6rem; }
+    .footer__social a {
+      width: 4rem;
+      height: 4rem;
+      transition: all .2s;
+      background-color: #fff;
+      border-radius: 50%;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .footer__social a:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background-color: #00ffc8; }
+      .footer__social a:not(:last-child) {
+        margin-right: 2rem; }
+  .footer__input {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #06cf9a; }
+    .footer__input input {
+      border: none;
+      outline: none;
+      background: none;
+      flex: 1;
+      color: #16395b;
+      font-size: 1.4rem;
+      font-family: 'Avenir Next Cyr Demi', serif;
+      padding-bottom: 1rem; }
+      .footer__input input::placeholder {
+        color: rgba(22, 57, 91, 0.7);
+        font-size: 1.4rem; }
+        @media only screen and (max-width: 50em) {
+          .footer__input input::placeholder {
+            color: rgba(255, 255, 255, 0.7); } }
+      @media only screen and (max-width: 50em) {
+        .footer__input input {
+          font-family: 'Avenir Next Cyr Medium', serif;
+          color: #fff; } }
+    .footer__input svg {
+      font-size: 1.6rem;
+      color: #06cf9a; }
+  .footer__language {
+    width: 24rem;
+    height: 4rem;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    border: 1px solid #545784;
+    padding: 0 2rem; }
+    .footer__language select {
+      outline: none;
+      border: none;
+      background-color: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-family: "Avenir Next Cyr";
+      font-size: 1.4rem;
+      flex: 1; }
+      @media only screen and (max-width: 50em) {
+        .footer__language select {
+          color: #fff; } }
+    .footer__language svg {
+      color: #16395b; }
+      @media only screen and (max-width: 50em) {
+        .footer__language svg {
+          color: #fff; } }
+    @media only screen and (max-width: 50em) {
+      .footer__language {
+        grid-column: 1 / -1;
+        justify-self: start;
+        border-color: #fff; } }
+  .footer__bottom {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    @media only screen and (max-width: 50em) {
+      .footer__bottom {
+        display: block; } }
+  .footer__rights {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem; }
+    .footer__rights img {
+      margin-right: 1rem; }
+    .footer__rights span::before {
+      content: ' d'; }
+    @media only screen and (max-width: 50em) {
+      .footer__rights {
+        color: #fff;
+        margin-bottom: 1rem; } }
+  @media only screen and (max-width: 50em) {
+    .footer__rights-image {
+      display: none; } }
+  .footer__rights-image-mobile {
+    display: none; }
+    @media only screen and (max-width: 50em) {
+      .footer__rights-image-mobile {
+        display: block; } }
+  .footer__bottom-list {
+    justify-self: end;
+    display: flex; }
+    @media only screen and (max-width: 50em) {
+      .footer__bottom-list {
+        font-size: 1.2rem; } }
+  .footer__bottom-item {
+    list-style: none; }
+    .footer__bottom-item a,
+    .footer__bottom-item a:visited,
+    .footer__bottom-item a:hover,
+    .footer__bottom-item a:active,
+    .footer__bottom-item a:link {
+      text-decoration: underline;
+      font-size: 1.4rem;
+      color: #16395b;
+      font-family: "Avenir Next Cyr Demi", serif; }
+      @media only screen and (max-width: 50em) {
+        .footer__bottom-item a,
+        .footer__bottom-item a:visited,
+        .footer__bottom-item a:hover,
+        .footer__bottom-item a:active,
+        .footer__bottom-item a:link {
+          font-family: "Avenir Next Cyr", serif;
+          color: #fff; } }
+    .footer__bottom-item:not(:last-child) {
+      margin-right: 3rem; }
+      @media only screen and (max-width: 50em) {
+        .footer__bottom-item:not(:last-child) {
+          margin-right: 1.5rem; } }
